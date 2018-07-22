@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评论功能</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        #box{
+            width: 600px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+        }
+        #top{
+            margin: 20px;
+        }
+        #box ul{
+            margin-left: 90px;
+        }
+        #box ul li{
+            height: 28px;
+            line-height: 28px;
+            margin-bottom: 10px;
+            color: red;
+            border-bottom: 1px dotted #ccc;
+            margin-right: 110px;
+            font-size: 13px;
+
+        }
+        #box ul li a{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box">
+    <div id="top">
+        <label >发表评论:</label>
+        <textarea id="my_textarea" rows="10" cols="60" >
+
+        </textarea>
+        <button id="publish">发布</button>
+
+    </div>
+    <ul id="ul">
+        <!--<li>-->
+            <!--hahahahhahah <a href="#">删除</a>-->
+        <!--</li>-->
+    </ul>
+</div>
+<script>
+window.onload = function () {
+    //根据id 获取dom元素
+    function $(id) {
+        return typeof id == "string" ? document.getElementById(id):null;
+    }
+    $('my_textarea').value = '';
+
+    //发布按钮点击事件
+    $('publish').onclick = function () {
+        //判断输入框的值i
+        var  content = $('my_textarea').value;
+
+        if (content.length === 0){
+            alert('请输入内容哦~');
+            return;
+        }else {
+             var li = document.createElement('li');
+             li.innerHTML = $('my_textarea').value +'<a href="javascript:;">删除</a>';
+             // $('ul').appendChild(li);
+            //在某一个标签插入元素
+            $('ul').insertBefore(li,$('ul').children[0]);
+
+            //清空输入框
+            $('my_textarea').value = '';
+
+        }
+
+        //删除
+        //便利所有的a标签 删除父标签
+        var alist = $('box').getElementsByTagName('a');
+        // console.log(alist);
+
+        for (var i = 0; i<alist.length;i++){
+
+            var a = alist[i];
+            a.onclick = function () {
+                this.parentNode.remove();
+            }
+
+        }
+    }
+}
+</script>
+</body>
+</html>

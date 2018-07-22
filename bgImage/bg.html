@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        .box1{
+            width: 0px;
+            height: 0px;
+            border-width: 60px;
+
+            border-color: #f1f1f1 #fff #fff #fff;
+            border-style: solid;
+        }
+        .box2 {
+            background-color: #ff4;
+            width: 200px;
+            height: 200px;
+            border: skyblue dashed;
+            padding: 20px;
+            margin: 40px;
+
+
+        }
+        .box3::before {
+            content: "我是";
+        }
+    </style>
+</head>
+<body>
+
+<div class="box1">
+
+</div>
+
+<hr>
+
+<div class="box2">
+    
+</div>
+
+<div class="box3">
+    伪元素
+</div>
+
+</body>
+</html>

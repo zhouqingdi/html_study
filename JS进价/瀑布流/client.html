@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color:red;
+            border: 10px solid #fe1;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+
+</div>
+<script>
+    window.onload = function () {
+
+        var box = document.getElementById('box');
+        // console.log(box.clientWidth,box.clientHeight);
+        // console.log(box.offsetWidth,box.offsetHeight);
+        // console.log(box.scrollWidth,box.scrollHeight);
+        console.log(box.clientLeft,box.clientTop);
+        console.log(box.offsetLeft,box.offsetTop);
+        console.log(box.scrollLeft,box.scrollTop);
+
+
+    }
+</script>
+</body>
+</html>

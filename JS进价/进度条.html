@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>进度条</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #progress{
+            width: 600px;
+            height: 35px;
+            position: relative;
+            margin: 100px 0 0 100px;
+        }
+        #progress_bar{
+            width: 540px;
+            height: 100%;
+            background-color: #ccc;
+            position: relative;
+            top: 0px;
+            left: 0;
+            border-radius: 5px;
+        }
+        #progress_bar_pre{
+            width: 0px;
+            height: 100%;
+            background-color: orangered;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+
+        }
+
+        #progress_value{
+
+            position: absolute;
+            right: 20px;
+            top: 0;
+
+        }
+        span{
+            width: 20px;
+            height: 50px;
+            position: absolute;
+            top: -7px;
+            left: 0px;
+            background-color: orangered;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="progress">
+    <div id="progress_bar">
+        <div id="progress_bar_pre"></div>
+        <span></span>
+
+    </div>
+    <div id="progress_value">0%</div>
+
+</div>
+
+<script>
+
+    window.onload = function () {
+        var progress = document.getElementById('progress');
+        var  progress_bar = progress.children[0];
+        var  progress_bar_pre = progress_bar.children[0];
+        var mask = progress_bar.children[1];
+        var progress_value = progress.children[1];
+
+        mask.onmousedown = function (event) {
+
+            var e = event || window.event;
+
+            var offsetLeft = e.clientX - mask.offsetLeft;
+
+
+            //监听鼠标移动
+            document.onmousemove = function (event) {
+                var e = event || window.event;
+                var X = e.clientX - offsetLeft;
+
+
+                if (X< 0){
+                    X  = 0;
+                } else if(X >= progress_bar.offsetWidth - mask.offsetWidth){
+                    X = progress_bar.offsetWidth - mask.offsetWidth;
+                }
+                mask.style.left = X +'px';
+                progress_bar_pre.style.width = X +'px';
+
+                var pro =  X/(progress_bar.offsetWidth-mask.offsetWidth)*100;
+                progress_value.innerHTML = parseInt(pro)  +'%';
+
+
+                return false;
+
+            }
+
+            //鼠标抬起
+            document.onmouseup = function (event) {
+               document.onmousemove = null;
+
+            }
+
+        }
+
+    }
+
+</script>
+
+
+</body>
+</html>

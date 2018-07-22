@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        body{
+            background-color: #000;
+        }
+        span{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: url("img/star.png");
+            -webkit-background-size: 100%,100%;
+            background-size: 100%,100%;
+            animation: leaner 1s alternate infinite;
+            transition: all 1s;
+
+            
+        }
+        span:hover{
+            transform: scale(3,3) rotate(180deg) !important;
+        }
+
+        @keyframes leaner {
+            0%{opacity: 0;}
+            100%{
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<span></span>
+<script>
+    window.onload = function () {
+
+        //获取屏幕宽高
+        var screenW = document.documentElement.clientWidth;
+        var screenH = document.documentElement.clientHeight;
+
+        //创建150个星星
+        for (var i = 0;i <150;i++){
+            var span = document.createElement('span');
+            document.body.appendChild(span);
+
+            var x = Math.random()*screenW;
+            var y = Math.random()*screenH;
+
+            span.style.left = x+'px';
+            span.style.top = y +'px';
+            var  scale = Math.random()*1.5;
+            span.style.transform = 'scale('+scale+','+scale+')';
+            var delay = Math.random()*1.5;
+            span.style.animationDelay = delay+'s';
+
+        }
+
+
+    }
+</script>
+
+</body>
+</html>

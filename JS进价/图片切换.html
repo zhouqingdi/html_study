@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片切换</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        #box{
+            width: 430px;
+            border: 1px solid #f1f1f1;
+            height: 60px;
+            margin: 100px auto;
+            padding-top: 430px;
+            background: url("img/big1.jpg") no-repeat   ;
+        }
+        ul{
+            /*弹性布局*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /*当鼠标放上去  变成手掌*/
+            cursor: pointer;
+        }
+        ul li{
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li id="li01"><img src="img/1.jpg" alt=""></li>
+        <li id="li02"><img src="img/2.jpg" alt=""></li>
+        <li id="li03"><img src="img/3.jpg" alt=""></li>
+        <li id="li04"><img src="img/4.jpg" alt=""></li>
+        <li id="li05"><img src="img/5.jpg" alt=""></li>
+    </ul>
+
+</div>
+
+<script>
+    window.onload = function () {
+
+        function $(id) {
+            return typeof id == "string" ?document.getElementById(id):null;
+        }
+        //改变背景图片
+        function changeImage(liid,imgSrc) {
+            /**/
+            $(liid).onmouseover = function () {
+                $('box').style.background = imgSrc;
+            }
+
+        }
+
+        changeImage('li01','url("img/big1.jpg") no-repeat');
+        changeImage('li02','url("img/big2.jpg") no-repeat');
+        changeImage('li03','url("img/big3.jpg") no-repeat');
+        changeImage('li04','url("img/big4.jpg") no-repeat');
+        changeImage('li05','url("img/big5.jpg") no-repeat');
+
+        // var li01 = document.getElementById('li01');
+        // var li02 = document.getElementById('li02');
+        // var li03 = document.getElementById('li03');
+        // var li04 = document.getElementById('li04');
+        // var li05 = document.getElementById('li05');
+        // var box = document.getElementById('box');
+        // li01.onmouseover = function () {
+        //     box.style.background= 'url("img/big1.jpg") no-repeat';
+        // }
+        // li02.onmouseover = function () {
+        //     box.style.background= 'url("img/big2.jpg") no-repeat';
+        // }
+        // li03.onmouseover = function () {
+        //     box.style.background= 'url("img/big3.jpg") no-repeat';
+        // }
+        // li04.onmouseover = function () {
+        //     box.style.background= 'url("img/big4.jpg") no-repeat';
+        // }
+        // li05.onmouseover = function () {
+        //     box.style.background= 'url("img/big5.jpg") no-repeat';
+        // }
+
+    }
+</script>
+
+</body>
+</html>

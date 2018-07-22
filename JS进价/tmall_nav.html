@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导航条</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+
+            list-style: none;
+        }
+        body{
+            background-color: pink;
+        }
+        #box{
+            width: 1080px;
+            height: 66px;
+            margin: 100px auto;
+            border-radius: 5px ;
+            position: relative;
+            background: url("img/logo.png") no-repeat right center;
+
+
+        }
+        #bottom{
+            width: 180px;
+            height: 66px;
+            background: url("img/tmal.png");
+            position: absolute;
+        }
+        ul{
+            position: relative;
+
+        }
+
+        ul li{
+            width: 180px;
+            height: 66px;
+            float: left;
+            text-align: center;
+            cursor: pointer;
+            line-height: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="box">
+        <span id="bottom"></span>
+        <ul>
+            <li>双11狂欢</li>
+            <li>服装会场</li>
+            <li>数码家电</li>
+            <li>家居建材</li>
+            <li>进口会场</li>
+        </ul>
+    </div>
+
+    <script>
+        window.onload = function () {
+            //1.获取标签
+
+            var box = $('box');
+            var spna = box.children[0];
+            var ul = box.children[1];
+            var allLis = ul.children;
+
+            var befinX = 0;
+
+            //遍历所有li
+
+            for (var i = 0;i<allLis.length;i++){
+                var li = allLis[i];
+                //进入
+                li.onmouseover = function () {
+                    end = this.offsetLeft;
+                }
+                //出去
+                li.onmouseout = function () {
+                    end = befinX;
+                }
+                //点击
+                li.onmousedown = function () {
+
+                    befinX = this.offsetLeft;
+
+                }
+            }
+
+            //缓动动画
+            var begin = 0,end = 0;
+            setInterval(function () {
+                begin = begin +(end-begin)*0.1;
+
+                //改变span的left
+                spna.style.left = begin +'px';
+
+
+
+            } ,10)
+
+
+
+
+            function $(id) {
+                return typeof id === "string"?document.getElementById(id):null;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+img{
+    /*图片顶部距离清零*/
+    vertical-align: top;
+}
+
+html body{
+    width: 100%;
+    height: 100%;
+}
+#main{
+    position: relative;
+    
+}
+
+#main .box{
+    /*图片的最外层盒子*/
+    float: left;
+    /*background-color: rebeccapurple;*/
+    padding: 10px 0 0 10px;
+}
+
+#main .pic{
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+.pic img{
+    width: 165px;
+}

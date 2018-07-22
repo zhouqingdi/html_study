@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放大镜效果</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        #box{
+            width: 230px;
+            height: 230px;
+            position: relative;
+            margin: 100px 0 0 100px;
+        }
+        #nor{
+            width: 230px;
+            height: 230px;
+            border: 1px solid #ccc;
+            background: url("img/mac_big1.jpg");
+            background-size: contain;
+            position: absolute;
+            cursor: move;
+
+        }
+        #mask{
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255,255,0,0.5);
+            position: absolute;
+            display: none;
+            cursor: none;
+        }
+        #big{
+            width: 430px;
+            height: 430px;
+            position: absolute;
+            top: 0;
+            left: 240px;
+            border: 1px solid #ccc;
+            display: none;
+            overflow: hidden;
+        }
+        #big img{
+            position: absolute;
+            top: 0;
+            left: 0;
+
+        }
+
+        #pro{
+            margin-left: 100px;
+        }
+        #pro ul{
+            height: 60px;
+            width: 180px;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            /*margin-top: 5px;*/
+        }
+        #pro ul li{
+            width: 60px;
+            height: 60px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="nor">
+
+        <span id="mask">  </span>
+
+    </div>
+
+    <div id="big">
+        <img src="img/mac_big1.jpg" alt="">
+    </div>
+</div>
+
+<div id="pro">
+
+    <ul>
+        <li><img src="img/mac1.jpg" alt=""></li>
+        <li><img src="img/mac2.jpg" alt=""></li>
+        <li><img src="img/mac3.jpg" alt=""></li>
+    </ul>
+</div>
+
+<script>
+    window.onload = function () {
+
+        var pic = $('pro');
+        var ul = pic.children[0];
+        var allLis = ul.children;
+        var nor = $('nor');
+        var mask = $('mask');
+        var big = $('big');
+        var big_image = big.children[0];
+        for (var i = 0;i<allLis.length;i++){
+
+            var li = allLis[i];
+            li.index = i+1;
+            console.log("img/mac_big"+li.index+".jpg");
+
+            li.onmouseover = function () {
+
+                nor.style.background = 'url("img/mac_big'+this.index+'.jpg")';
+                nor.style.backgroundSize = 'contain';
+                big_image.style.src =  "img/mac_big"+this.index+".jpg";
+
+            }
+        }
+
+        nor.onmouseover = function () {
+            mask.style.display = 'block';
+            big.style.display = 'block';
+
+            //监听鼠标移动
+            nor.onmousemove = function(event){
+
+
+
+                var event= event || window.event;
+                //鼠标的坐标
+                var pointX = event.clientX - nor.offsetParent.offsetLeft - mask.offsetWidth*0.5;
+                var pointY = event.clientY - nor.offsetParent.offsetTop-mask.offsetHeight*0.5;
+                //边界检测
+                if (pointX<0){
+                    pointX = 0;
+                } else if(pointX > nor.offsetWidth - mask.offsetWidth){
+                    pointX = nor.offsetWidth - mask.offsetWidth
+                }
+                if (pointY<0){
+                    pointY = 0;
+                } else if(pointY > nor.offsetHeight - mask.offsetHeight){
+                    pointY = nor.offsetHeight - mask.offsetHeight
+                }
+                mask.style.left = pointX +'px';
+
+                mask.style.top = pointY +'px';
+                //让大图动起来
+                // smallX /BigX = smallBox.width /bigBxo.width
+                big_image.style.left = - pointX/(nor.offsetWidth/big.offsetWidth) +'px';
+                big_image.style.top = -pointY/(nor.offsetHeight/big.offsetHeight)+'px';
+
+            }
+        }
+        nor.onmouseout = function () {
+            mask.style.display = 'none';
+            big.style.display = 'none';
+
+        }
+
+
+
+
+        function $(id) {
+
+            return typeof id === "string"?document.getElementById(id):null;
+
+        }
+    }
+</script>
+</body>
+</html>

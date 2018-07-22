@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        p{
+            line-height: 30px;
+            text-align: center;
+
+        }
+        #aside{
+            width: 120px;
+            position: absolute;
+            left: 0;
+            top: 150px;
+
+        }
+        #aside img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="aside">
+    <img src="img/aside_ad.png" alt="">
+</div>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+<p>is付红四方四分局欧式机基夫斯基搜附近</p>
+
+
+<script type="text/javascript" src="js/Util.js"></script>
+<script>
+    window.onload = function () {
+
+        var aside_top = $('aside').offsetTop;
+        var begin = 0,end = 0, timer = null;
+        window.onscroll = function () {
+            //滚动高度
+            var scroll_top = scroll().top;
+
+            //缓动动画
+            end = scroll_top + aside_top;
+
+            clearInterval(timer);
+
+            timer =  setInterval(function () {
+                begin = begin +(end -begin)*0.2;
+                $('aside').style.top = begin +'px';
+                //动画结束后  清除定时器
+                if (Math.round(begin) === end){
+                    clearInterval(timer);
+                }
+            },100)
+
+
+
+
+
+        }
+        
+    }
+</script>
+</body>
+</html>

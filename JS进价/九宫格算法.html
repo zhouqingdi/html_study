@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>九宫格</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            position: relative;
+            margin-top: 20px;
+        }
+        #box div{
+            width: 128px;
+            height: 128px;
+            border: 1px solid darkcyan;
+            margin: 10px 0px 0px 0px;
+
+        }
+    </style>
+</head>
+<body>
+
+<div style="margin-left: 10px; margin-top: 15px">
+    <button>两列</button>
+    <button>三列</button>
+    <button>五列</button>
+</div>
+<div id="box">
+
+    <div style="background-color: green"></div>
+    <div style="background-color: red"></div>
+    <div style="background-color: blue"></div>
+    <div style="background-color: pink"></div>
+    <div style="background-color: orange"></div>
+    <div style="background-color: olive"></div>
+    <div style="background-color: palegreen"></div>
+    <div style="background-color: plum"></div>
+    <div style="background-color: darkkhaki"></div>
+    <div style="background-color: skyblue"></div>
+    <div style="background-color: darkcyan"></div>
+    <div style="background-color: firebrick"></div>
+    <div style="background-color: violet"></div>
+    <div style="background-color: aquamarine"></div>
+    <div style="background-color: antiquewhite"></div>
+    <div style="background-color: hotpink"></div>
+    <div style="background-color: magenta"></div>
+    <div style="background-color: saddlebrown"></div>
+    <div style="background-color: darkslateblue"></div>
+    <div style="background-color: purple"></div>
+    <div style="background-color: yellowgreen"></div>
+
+</div>
+<script>
+    window.onload = function () {
+        var btns = document.getElementsByTagName('button');
+        btns[0].onclick = function () {
+            var itemW = 128;
+            var allcols = 2;
+            magrinXY = 10;
+            var box = document.getElementById('box');
+            for (var i= 0;i<box.children.length;i++){
+            //    计算所在行数
+                var row = parseInt(i / allcols);
+            //    计算所在列
+                var cols = parseInt(i % allcols);
+                var currentBox = box.children[i];
+                currentBox.style.position = 'absolute'
+                currentBox.style.left = cols*(itemW+magrinXY)+'px';
+                currentBox.style.top = row*(itemW+magrinXY)+'px';
+
+            }
+        }
+        btns[1].onclick = function () {
+            var itemW = 128;
+            var allcols = 3;
+            magrinXY = 10;
+            var box = document.getElementById('box');
+            for (var i= 0;i<box.children.length;i++){
+                //    计算所在行数
+                var row = parseInt(i / allcols);
+                //    计算所在列
+                var cols = parseInt(i % allcols);
+                var currentBox = box.children[i];
+                currentBox.style.position = 'absolute'
+                currentBox.style.left = cols*(itemW+magrinXY)+'px';
+                currentBox.style.top = row*(itemW+magrinXY)+'px';
+
+            }
+        }
+        btns[2].onclick = function () {
+            var itemW = 128;
+            var allcols = 4;
+            magrinXY = 10;
+            var box = document.getElementById('box');
+            for (var i= 0;i<box.children.length;i++){
+                //    计算所在行数
+                var row = parseInt(i / allcols);
+                //    计算所在列
+                var cols = parseInt(i % allcols);
+                var currentBox = box.children[i];
+                currentBox.style.position = 'absolute'
+                currentBox.style.left = cols*(itemW+magrinXY)+'px';
+                currentBox.style.top = row*(itemW+magrinXY)+'px';
+
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

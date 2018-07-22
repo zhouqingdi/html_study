@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>切换皮肤</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0px;
+            list-style: none;
+            vertical-align: top;
+        }
+        body{
+            background: url("img/img1.jpg") no-repeat;
+            background-size: cover;
+        }
+        #box{
+            background-color: rgba(255,255,255,0.5);
+        }
+        ul{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            cursor: pointer;
+
+        }
+        #box ul li img {
+            width: 180px;
+            height: 120px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li><img src="img/img1.jpg" alt=""></li>
+        <li><img src="img/img2.jpg" alt=""></li>
+        <li><img src="img/img3.jpg" alt=""></li>
+        <li><img src="img/img4.jpg" alt=""></li>
+        <li><img src="img/img5.jpg" alt=""></li>
+    </ul>
+</div>
+<script>
+    window.onload = function () {
+        var  box = document.getElementById('box');
+        var allList = box.getElementsByTagName('li');
+        for (var i =0; i<allList.length;i++) {
+            var li = allList[i];
+            li.index = i +1;
+            li.onclick = function () {
+                document.body.style.background = 'url("img/img'+this.index+'.jpg") no-repeat';
+            }
+        }
+    }
+</script>
+</body>
+</html>

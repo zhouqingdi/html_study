@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">
+    点我
+</button>
+
+<script>
+    window.onload = function () {
+
+        var  btn = document.getElementById('btn');
+
+        btn.onclick = function (event) {
+
+            var e = event || window.event;
+            console.log(e);
+
+            console.log(e.type);
+            console.log(e.target);
+
+        }
+
+    }
+</script>
+
+</body>
+</html>

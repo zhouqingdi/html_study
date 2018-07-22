@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鲜花表白</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background-color: black;
+            text-align: center;
+        }
+        #time{
+            font-size: 100px;
+            color: red;
+            margin-top: 60px;
+        }
+        #img{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="time">5</div>
+<img id="img" src="img/flower.gif" alt="">
+</body>
+<script>
+    window.onload = function () {
+
+        var count = 5;
+        var timer = null;
+        var box = document.getElementById('time');
+      timer =  setInterval(function () {
+
+            count--;
+            box.innerText = count;
+            if (count==0){
+                clearInterval(timer);
+                var img = document.getElementById('img');
+                img.style.display = 'block';
+                img.style.margin = '100px auto';
+
+                box.style.display = 'none';
+            }
+
+        },1000)
+
+    }
+</script>
+</html>

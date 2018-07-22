@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        div{
+            perspective: 600px;
+        }
+        ul{
+            width: 400px;
+            height: 400px;
+            position: relative;
+            /*局顶部1oopx 水平居中*/
+            margin: 100px auto;
+            transform-style: preserve-3d;
+            transform: rotateX(0deg) rotateY(0deg);
+            animation: cycle 5s linear 0s infinite normal;
+
+        }
+        @keyframes cycle {
+            from{
+                transform: rotateX(0deg);
+            }
+            to{
+                transform: rotateX(360deg);
+
+            }
+
+        }
+        ul li {
+
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+            list-style: none;
+            float: left;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        /*上后下 前 设置  保证图片不颠倒*/
+
+        ul li:nth-child(1){
+            /*先设置上部*/
+            /*沿X轴旋转90度后 坐标系也跟着旋转90度*/
+            transform: rotateX(90deg) translateZ(200px);
+
+        }
+        ul li:nth-child(2){
+            transform: rotateX(180deg) translateZ(200px);
+
+        }
+
+        ul li:nth-child(3){
+            transform: rotateX(270deg) translateZ(200px);
+
+        }
+
+        ul li:nth-child(4){
+            transform: rotateX(360deg) translateZ(200px);
+
+        }
+
+        ul li:nth-child(5){
+            transform: translateX(200px) rotateY(90deg);
+        }
+
+        ul li:nth-child(6){
+            transform: translateX(-200px) rotateY(90deg);
+
+        }
+
+
+    </style>
+
+</head>
+<body>
+<div>
+    <ul>
+        <li><img src="imges/1.jpg" alt=""></li>
+        <li><img src="imges/2.jpg" alt=""></li>
+        <li><img src="imges/3.jpg" alt=""></li>
+        <li><img src="imges/4.jpg" alt=""></li>
+        <li><img src="imges/6.jpg" alt=""></li>
+        <li><img src="imges/6.jpg" alt=""></li>
+    </ul>
+</div>
+</body>
+</html>

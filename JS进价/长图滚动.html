@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;list-style: none;
+        }
+        body{
+            background-color: #000;
+        }
+        #box{
+            height: 400px;
+            width: 600px;
+            overflow: hidden;
+            margin: 100px auto;
+            position: relative;
+        }
+        #pic{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #top,#bottom{
+            width: 300px;
+            height: 400px;
+            /*background-color: lightgreen;*/
+            position: absolute;
+            top: 0px;
+            cursor: pointer;
+        }
+        #top{
+            left: 0px;
+
+        }
+        #bottom{
+            right: 0px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="box">
+        <img id="pic" src="img/add.png" alt="">
+        <span id="top"></span>
+        <span id="bottom"></span>
+    </div>
+<script>
+    window.onload = function () {
+        //获取元素
+        var pic = $('pic');
+        var top = $('top');
+        var bottom = $('bottom');
+
+        //定义定时器(变量接受, 后期需要先清除定时器.防止定时器累加)
+
+        var timer = null;
+        //定义图片 步长
+
+        var num = 0;
+
+        //获取标签鼠标事件
+
+        top.onmouseover = function () {
+            //首先要清除定时器
+            clearInterval(timer);
+            //图片往上走,设置top 值
+
+            timer = setInterval(function () {
+                //容错 约束
+                num -= 10;
+
+                if (num>=-3017){
+                    pic.style.left = num +'px';
+
+                } else {
+                   //当图片最右侧向左移动到div左边的时候 停止定时器
+                   clearInterval(timer);
+                }
+            },20)
+        }
+
+            bottom.onmouseover = function () {
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    num += 10;
+
+                    if (num <= 0){
+                        pic.style.left = num +'px';
+
+                    } else {
+                        clearInterval(timer);
+                    }
+                },20)
+            }
+
+            $('box').onmouseleave = function () {
+                clearInterval(timer);
+            }
+
+
+
+
+            function $(id) {
+                return typeof id === "string"?document.getElementById(id):null;
+
+            }
+    }
+</script>
+</body>
+</html>

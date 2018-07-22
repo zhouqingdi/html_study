@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日历特效</title>
+    <style>
+        #box{
+            background-color: orange;
+            width: 280px;
+            height: 300px;
+            margin: 100px auto;
+            position: relative;
+            padding: 20px;
+        }
+        #top{
+            line-height: 40px;
+            font-size: 20px;
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            }
+        #bottom {
+            background-color: orangered;
+            width: 90%;
+            height: 70%;
+            margin: 0 auto;
+            font-size: 100px;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+
+        }
+    </style>
+</head>
+<body>
+
+<div id="box">
+
+    <div id="top"></div>
+    <div id="bottom">
+
+    </div>
+
+</div>
+<script>
+    window.onload = function () {
+
+        var date = new Date();
+        var weeks = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+        var top = document.getElementById('top');
+        top.innerText = date.getFullYear()+'年'+(date.getMonth()+1)+'月'+date.getDate()+'日 '+weeks[date.getDay()];
+        var bottom = document.getElementById('bottom');
+        bottom.innerText = date.getDate();
+
+
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+
+        }
+        p{
+            width: 200px;
+        }
+        #share{
+            position: absolute;
+            background-color: #ccc;
+            width: 150px;
+            display: none;
+
+        }
+    </style>
+</head>
+<body>
+
+<p id="word">　应保罗·卡加梅总统邀请，我将于7月22日至23日对卢旺达进行国事访问。这是我首次访问贵国，也是中国国家主席首次到访卢旺达，我对此行充满期待。
+
+    　　卢旺达有“千丘之国”美誉。这里风景秀丽、四季如春、物产丰饶，这里人民勤劳勇敢、自强不息，是非洲大陆上一片充满生机的土地。</p>
+
+<div id="share"></div>
+
+
+<script type="text/javascript" src="js/Util.js"></script>
+<script>
+
+    window.onload = function () {
+        $('word').onmouseup = function (event) {
+            var e = event || window.event;
+            var selectText;
+            //获取选中的文字
+            if(window.getSelection){
+                //标准模式
+                selectText = window.getSelection().toString();
+            }else {
+                //ie 浏览器
+                selectText = document.selection.createRange().text;
+            }
+
+            if (selectText !== ''){
+                $('share').style.display = 'block';
+                $('share').innerText = selectText;
+                //改变shar位置
+
+                $('share').style.left = e.clientX + 'px';
+                $('share').style.top = e.clientY +'px';
+
+            }
+
+
+        }
+
+
+        document.onmousedown = function (event) {
+            var e = event || window.event;
+
+            var  tagartId = e.target ? e.target.id:e.srcElement.id;
+
+            //事件冒泡
+
+            if (tagartId !== 'share'){
+
+                $('share').style.display = 'none';
+            }
+            //防止拖到时选中内容
+            window.getSelection()?window.getSelection().removeAllRanges():document.selection.empty();
+
+
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件属性</title>
+    <style>
+        div{
+            height: 200px;
+            width: 20px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+<script>
+
+    document.onclick = function(){
+        alert('1111');
+    }
+
+        // document.onclick = function (event) {
+        //     alert('11111');
+        //     var e = event || window.event;
+        //     //相对于文档(绝对定位)
+        //     console.log(e.pageX,,e.pageY);
+        //     //    亿屏幕为基准
+        //     console.log(e.screenX,e.screenY);
+        //     //已当前可是区域为基准 类似于固定定位
+        //     console.log(e.clientX,e.clientY);
+        // }
+
+</body>
+
+</html>

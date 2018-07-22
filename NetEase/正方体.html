@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正方体</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            /*background-color: #fff;*/
+            /*border: 1px solid;*/
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            /*box-sizing: border-box;*/
+            position: relative;
+            transform: rotateY(130deg) rotateX(60deg);
+            transform-style: preserve-3d;/*3d转换*/
+
+        }
+        ul li {
+            list-style: none;
+            width: 200px;
+            height: 200px;
+            font-size: 24px;
+            text-align: center;
+            line-height: 200px;
+            float: left;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+        }
+        /*上后下 前*/
+        ul li:nth-child(1){
+              background-color: red;
+              transform: translateX(-100px) rotateY(90deg);
+
+
+        }
+        ul li:nth-child(2){
+            background-color: blue;
+            transform: translateX(100px) rotateY(90deg);
+        }
+        ul li:nth-child(3){
+            background-color: green;
+            transform: translateY(-100px) rotateX(90deg);
+        }
+        ul li:nth-child(4){
+            background-color: yellow;
+            transform: translateY(100px) rotateX(90deg);
+
+        }
+        ul li:nth-child(5){
+            background-color: orange;
+            transform: translateZ(100px);
+        }
+        ul li:nth-child(6){
+            background-color: purple;
+            transform: translateZ(-100px);
+
+        }
+
+    </style>
+</head>
+<body>
+
+<div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+</div>
+
+
+</body>
+</html>

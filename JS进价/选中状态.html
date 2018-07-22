@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择状态</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            box-shadow:5px 5px 5px gray ;
+            margin: 100px auto;
+            padding: 10px;
+        }
+        .header{
+            text-align: center;
+            
+        }
+        .footer{
+
+        }
+    </style>
+</head>
+
+<div id="box">
+
+    <section class="header">
+        <h2>歌曲列表</h2>
+        <hr>
+    </section>
+    <section class="content">
+        <input type="checkbox">海阔天空 <br>
+        <input type="checkbox">光辉岁月 <br>
+        <input type="checkbox">情人 <br>
+        <input type="checkbox">农民 <br>
+        <input type="checkbox">喜欢你 <br>
+        <input type="checkbox">忘情水 <br>
+        <input type="checkbox">真的爱你 <br>
+
+    </section>
+    <section class="footer">
+        <hr>
+        <button id="allselect">全选</button>
+        <button id="cancelselect">取消全选</button>
+        <button id="reverseselect">反选</button>
+    </section>
+
+</div>
+
+<script>
+    window.onload = function () {
+        function $(id) {
+            return typeof id == "string" ?document.getElementById(id):null;
+        }
+        //获取所有的input
+        var inputs = document.querySelectorAll('input');
+
+        //全选
+        $('allselect').onclick = function () {
+            for (var i = 0;i<inputs.length;i++){
+                 inputs[i].checked = true;
+            }
+        }
+        //取消全选
+        $('cancelselect').onclick = function () {
+            for (var i = 0;i<inputs.length;i++){
+                inputs[i].checked = false;
+            }
+        }
+        //反选
+        $('reverseselect').onclick = function () {
+            for (var i = 0;i<inputs.length;i++){
+                inputs[i].checked = !inputs[i].checked;
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

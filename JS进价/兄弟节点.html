@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <button>按钮</button>
+    <span class="span">
+        我是span
+    </span>
+    <p>我是段落</p>
+</div>
+
+</body>
+<script>
+    window.onload = function () {
+        // 下一个相邻节点
+        var span = document.getElementsByClassName('span')[0];
+        var dom = span.nextElementSibling || span.nextSibling;
+        console.log(dom);
+        //上一个兄弟节点
+        var btn = span.previousElementSibling || span.previousSibling;
+        console.log(btn);
+    }
+</script>
+</html>

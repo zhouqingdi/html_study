@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <a href="#" id="aa">百度一下</a>
+    <button class="btn">按钮</button>
+</div>
+
+
+</body>
+<script>
+    window.onload = function () {
+        var  a = document.getElementById("aa");
+        // console.log(a);
+        // var div = a.parentElement;
+        // div.style.backgroundColor = 'red';
+        var  btn = document.getElementsByClassName("btn")[0];
+        var  div  = btn.parentElement;
+        console.log(btn);
+        btn.onclick = function () {
+            div.style.backgroundColor = 'red';
+            alert('111');
+        }
+
+
+    }
+</script>
+</html>

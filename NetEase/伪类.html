@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>伪类选择器</title>
+    <!--
+    
+    
+    
+    -->
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            width: 960px;
+            height: 40px;
+            background-color: springgreen;
+            margin: 100px auto;
+        }
+        ul li {
+            width: 120px;
+            height: 40px;
+            list-style: none;
+            float: left;
+            background-color: pink;
+            text-align: center;
+            line-height: 40px;
+
+        }
+        ul li a {
+            display: inline-block;
+            width: 120px;
+            height: 40px;
+        }
+        a:link {
+            color: #dff;
+        }
+        a:visited{
+            color: #fee;
+        }
+        a:hover {
+            color: aquamarine;
+            background-color: lightgray;
+        }
+        a:active{
+            color: yellowgreen;
+        }
+        /*一起出现 遵循 爱恨原则  love hate link visited hover active*/
+    </style>
+</head>
+<body>
+<!--<a href="http://www.baidu.com">baidu</a>-->
+<!--<a href="http://www.jd.com">jd</a>-->
+<ul>
+    <li>
+        <a>
+        我是导航
+        </a>
+    </li>
+    <li>
+        <a>
+            我是导航
+        </a>
+    </li>
+    <li>
+        <a>
+            我是导航
+        </a>
+    </li>
+    <li>
+        <a>
+            我是导航
+        </a>
+    </li>
+    <li>
+        <a>
+            我是导航
+        </a>
+    </li>
+    <li>
+        <a>
+            我是导航
+        </a>
+    </li> <li>
+    <a>
+        我是导航
+    </a>
+</li>
+    <li>
+        <a>
+            我是导航
+        </a>
+    </li>
+
+</ul>
+
+
+</body>
+</html>

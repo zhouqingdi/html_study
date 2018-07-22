@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+<button>
+    点我
+</button>
+    <p>
+        我傻逼段落
+    </p>
+    <img src="" alt="">
+</div>
+</body>
+<script type="text/html">
+     <!--增删改查-->
+//    曾 创建子节点
+    window.onload = function () {
+
+         var box = document.getElementById('box');
+         console.log(box);
+        var img = document.createElement('img');
+        img.src = 'img/image.png';
+        console.log(img);
+        img.style.width = '100%'
+        // box.appendChild(img);
+
+        var btn = document.getElementsByTagName('button')[0];
+        //在某一个节点前面插入节点
+        box.insertBefore(img ,btn);
+        //删除节点
+        var p = document.getElementsByTagName('p')[0];
+        // p.parentNode.removeChild(p);
+        p.remove();
+
+    }
+</script>
+<script type="text/html">
+    window.onload = function () {
+        //节点复制
+        var box = document.getElementsByClassName('box')[0];
+        var newBox = box.cloneNode(true);
+        //浅拷贝 只拷贝一层
+        //深拷贝 拷贝所以
+        console.log(newBox);
+        document.body.appendChild(newBox);
+    }
+</script>
+<script>
+    var img = document.getElementsByTagName('img')[0];
+    console.log(img.getAttribute('src'))
+    //设置节点属性
+    img.setAttribute('src','img/image.png');
+    console.log(img.getAttribute('src'));
+    //removeAttribute
+
+</script>
+</html>

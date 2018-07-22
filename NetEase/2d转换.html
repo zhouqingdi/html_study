@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        img{
+            display: block;
+            height: 90px;
+            margin: 30px auto;
+        }
+        img:nth-child(1){
+            /*旋转*/
+            transform: rotate(-56deg);
+        }
+        img:nth-child(2){
+            /*水平 竖直 平移*/
+            transform: translate(100px,30px);
+        }
+        /*缩放*/
+        img:nth-child(3){
+            transform: scale(1.2,1);
+        }
+        /*连写*/
+        img:nth-child(4){
+            transform: rotate(-50deg) translate(100px,60px) scale(2);
+        }
+        /*2d转换 会修改元素的坐标系  也就是 旋转之后再平移就不是水平方向的了*/
+       
+    </style>
+</head>
+<body>
+<div>
+  <img src="imges/add2.jpg">
+    <img src="imges/add3.jpg">
+    <img src="imges/add4.jpg">
+    <img src="imges/add5.jpg">
+    <img src="imges/add6.jpg">
+z</div>
+</body>
+</html>
